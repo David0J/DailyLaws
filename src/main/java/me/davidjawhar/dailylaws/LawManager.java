@@ -27,6 +27,7 @@ public class LawManager {
 
     private BukkitTask tickTask;
     private BukkitTask periodicTask;
+    private long lastWorldTime = -1;
 
     public LawManager(DailyLawsPlugin plugin) {
         this.plugin = plugin;
@@ -94,9 +95,21 @@ public class LawManager {
             if (paused) return;
             World w = getPrimaryWorld();
             if (w == null) return;
-            if (w.getTime() == 0) {
+
+            long now = w.getTime(); // 0..23999
+
+            // First run: initialize last time
+            if (lastWorldTime < 0) {
+                lastWorldTime = now;
+                return;
+            }
+
+            // New day starts when time wraps backward (e.g. 23990 -> 10)
+            if (now < lastWorldTime) {
                 rollNewDay(false);
             }
+
+            lastWorldTime = now;
         }, 20L, 20L);
 
         // periodic (every second) laws that need ticking handled internally via their own tasks (we do that in those law classes)

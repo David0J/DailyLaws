@@ -19,7 +19,10 @@ public class DailyLawsPlugin extends JavaPlugin {
         this.lawManager.loadState();
         this.lawManager.registerLaws();
         this.lawManager.startSchedulers();
-
+        // If no laws are active (fresh install), roll immediately
+        if (lawManager.getActiveLawSummary().equals("None")) {
+            lawManager.rollNewDay(true);
+        }
         getLogger().info("DailyLaws enabled.");
     }
 
