@@ -1,0 +1,34 @@
+enabled_worlds:
+  - world
+  - world_nether
+  - world_the_end
+
+repeat_allowed: false
+show_on_join: true
+affect_creative: false
+broadcast_roll: true
+
+roll_one_percent: 70
+roll_two_percent: 30
+
+double_drops_percent: 20
+stone_lottery_percent: 8
+
+cursed_spawn_interval_seconds: 60
+cursed_spawn_percent: 15
+
+events_300s_interval_seconds: 300
+
+enabled_laws:
+  - FEATHER
+  - HEAVY
+  - SPEED
+  - NIGHT_VISION
+  - GLASS_CANNON
+  - VAMPIRIC
+  - DOUBLE_DROPS
+  - STONE_LOTTERY
+  - CURSED_SPAWNS
+  - NO_REGEN
+  - HOTBAR_SHUFFLE
+  - RANDOM_TP
