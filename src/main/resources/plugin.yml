@@ -3,10 +3,12 @@ version: 1.0.0
 main: me.davidjawhar.dailylaws.DailyLawsPlugin
 api-version: "1.21"
 author: DavidJawhar
+
 commands:
   laws:
     description: Show active laws and manage DailyLaws
     usage: /laws [list|reroll|pause|resume|reload|enable|disable]
+
 permissions:
   dailylaws.use:
     default: true
